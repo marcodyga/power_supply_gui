@@ -1,0 +1,15 @@
+npowersupplies 4                   # Number of power supplies
+port0 COM13                        # COM port of this power supply
+path0 D:\PowerSupply          # Path, into which the output files of this power supply should be saved (no / or \ at the end)
+port1 COM8
+path1 D:\PowerSupply 
+port2 COM11 
+path2 D:\PowerSupply
+port3 COM10
+path3 D:\PowerSupply
+defvolt max                        # Default voltage
+defcurr 50                         # Default current
+maxvolt 33                         # Maximum voltage
+voltunit V                         # Default unit for voltage
+currunit mA                        # Default unit for current
+timeunit h                         # Default unit for time
