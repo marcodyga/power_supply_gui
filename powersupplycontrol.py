@@ -315,12 +315,11 @@ class powersupplyframe(Frame):
     def run(self, channel):
         ''' Controls measurement '''
         delay = 1000   # time in milliseconds after which this function calls itself
-        # check if the time is over
-        #print(self.time_remaining[channel-1])
         # define remaining time precisely from start time and target time
         self.time_remaining[channel-1] = self.targetTimes[channel-1] * 60000.0 - (time.time() - self.startTimes[channel-1]) * 1000.0
         time_input_unit = self.unitvars[self.cols[3][0]]
         remaining_mins = self.time_remaining[channel-1] / 60000.0
+        # check if the time is over
         if self.time_remaining[channel-1] > 0:
             self.after(delay, self.run, channel)
             # get data
@@ -347,7 +346,7 @@ class powersupplyframe(Frame):
             f.close()
             self.end_run(channel)
             self.writeToEntry(self.rows[channel][3], 0.0)
-            if self.time_remaining == [0] * self.noutputs:
+            if all(t <= 0 for t in self.time_remaining):
                 self.clear_table_button["state"] = "normal"
         return
     

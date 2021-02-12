@@ -30,4 +30,6 @@ You will first need to configure the software in *config.txt*. Most importantly,
 
 The ports are defined by the HMP4040 driver - you can look up the port numbers (something like COM5) in the Device Manager under "Ports (COM & LPT)". If you have correctly installed the Virtual COM Port, you should see the "HO720 Virtual COM Ports", and the corresponding port numbers should be written there. Enter these numbers into the *config.txt*.
 
+You should also define the number and layout of the power supplies, by changing the parameter *npowersupplies* in *config.txt*, and modifying the layout in *gui.py* according to your needs.
+
 To start the software, simply run *gui.py*.
