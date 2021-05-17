@@ -451,8 +451,9 @@ class powersupplyframe(Frame):
                     entry.tooltip = tooltip.Tooltip(entry, text="This sample name already exists. Data will be appended to file " + samplename + ".ely.", waittime=0)
         else:
             entry.configure(bg="#ffffff")
-            if hasattr(entry, "tooltip"):
-                entry.tooltip.unbind()
+            if "tooltip" in sys.modules:
+                if hasattr(entry, "tooltip"):
+                    entry.tooltip.unbind()
         return True
         
     def get_swap_filename(self, channel):
