@@ -15,7 +15,7 @@ for this_line in f:
     no_comment = this_line.split("#")[0]  # remove comments
     no_comment = no_comment.strip() # remove trailing and leading spaces
     if no_comment != "":
-        stuff = no_comment[0].split(" ", 1)
+        stuff = no_comment.split(" ", 1)
         stuff[0] = stuff[0].strip()
         stuff[1] = stuff[1].strip()
         config[stuff[0]] = stuff[1]
