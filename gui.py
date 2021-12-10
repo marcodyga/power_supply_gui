@@ -12,7 +12,7 @@ from powersupplycontrol import powersupplyframe
 f = open("config.txt", "r")
 config = {}
 for this_line in f:
-    no_comment = this_line.split("#")  # remove comments
+    no_comment = this_line.split("#")[0]  # remove comments
     no_comment = no_comment.strip() # remove trailing and leading spaces
     if no_comment != "":
         stuff = no_comment[0].split(" ", 1)
