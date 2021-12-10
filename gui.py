@@ -11,13 +11,11 @@ from powersupplycontrol import powersupplyframe
 # get configuration from config.txt
 f = open("config.txt", "r")
 config = {}
-while True:
-    this_line = f.readline()
-    if this_line == "": 
-        break
-    else:
-        no_comment = this_line.split("#")  # remove comments
-        stuff = no_comment[0].split(" ")
+for this_line in f:
+    no_comment = this_line.split("#")  # remove comments
+    no_comment = no_comment.strip() # remove trailing and leading spaces
+    if no_comment != "":
+        stuff = no_comment[0].split(" ", 1)
         stuff[0] = stuff[0].strip()
         stuff[1] = stuff[1].strip()
         config[stuff[0]] = stuff[1]
